@@ -13,6 +13,10 @@ async function bootstrap() {
     logger: true,
   })
 
+  await fastify.get('/', (req, res) => {
+    return res.send('Hello World!')
+  })
+
   await fastify.register(cors, {
     origin: true, // depois colocar por exemplo www.denilson.com.br
   })
