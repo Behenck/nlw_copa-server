@@ -20,6 +20,7 @@ export async function authRoutes(fastify: FastifyInstance) {
       access_token: z.string(),
     })
 
+    /* eslint-disable */
     const { access_token } = createUserBody.parse(request.body)
 
     const userResponse = await fetch(

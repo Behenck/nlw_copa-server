@@ -1,4 +1,4 @@
-import { FastifyInstance } from 'fastify'
+import { FastifyInstance, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { prisma } from '../lib/prisma'
 import { authenticate } from '../plugins/authenticate'
@@ -9,7 +9,7 @@ export async function gameRoutes(fastify: FastifyInstance) {
     {
       onRequest: [authenticate],
     },
-    async (request) => {
+    async (request: FastifyRequest) => {
       const getPoolParams = z.object({
         id: z.string(),
       })
